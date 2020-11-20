@@ -1,25 +1,30 @@
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 body {
-  background: #1f1f1f;
-  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  /*background: #1f1f1f;*/
+  background: rgb(13,13,13);
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
 
 .cont {
   position: relative;
   overflow: hidden;
   height: 100vh;
-  padding: 60px 70px;
+  padding-right: 50px;
+  padding-left: 50px;
 }
 
 .cont__inner {
   position: relative;
-  height: 80%;
+  height: 63%;
+  top: 10%;
 }
 
 .cont__inner:hover .el__bg:after {
@@ -33,10 +38,14 @@ body {
   width: 32%;
   height: 100%;
   background: #252525;
-  -webkit-transition: width 0.7s, opacity 0.6s 0.7s, z-index 0s 1.3s, -webkit-transform 0.6s 0.7s;
-  transition: width 0.7s, opacity 0.6s 0.7s, z-index 0s 1.3s, -webkit-transform 0.6s 0.7s;
-  transition: transform 0.6s 0.7s, width 0.7s, opacity 0.6s 0.7s, z-index 0s 1.3s;
-  transition: transform 0.6s 0.7s, width 0.7s, opacity 0.6s 0.7s, z-index 0s 1.3s, -webkit-transform 0.6s 0.7s;
+  -webkit-transition: width 0.7s, opacity 0.6s 0.7s, z-index 0s 1.3s,
+    -webkit-transform 0.6s 0.7s;
+  transition: width 0.7s, opacity 0.6s 0.7s, z-index 0s 1.3s,
+    -webkit-transform 0.6s 0.7s;
+  transition: transform 0.6s 0.7s, width 0.7s, opacity 0.6s 0.7s,
+    z-index 0s 1.3s;
+  transition: transform 0.6s 0.7s, width 0.7s, opacity 0.6s 0.7s,
+    z-index 0s 1.3s, -webkit-transform 0.6s 0.7s;
   will-change: transform, width, opacity;
 }
 
@@ -62,12 +71,13 @@ body {
 
 .cont.s--inactive .el__inner {
   -webkit-transform: translate3d(0, 100%, 0);
-          transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
 }
 
 .el__bg {
   position: relative;
-  width: calc(100vw - 140px);
+  width: calc(100vw);
+  /*width: calc(100vw - 140px);*/
   height: 100%;
   -webkit-transition: -webkit-transform 0.6s 0.7s;
   transition: -webkit-transform 0.6s 0.7s;
@@ -90,12 +100,12 @@ body {
   transition: transform 1s;
   transition: transform 1s, -webkit-transform 1s;
   -webkit-transform: translate3d(0, 0, 0) scale(1);
-          transform: translate3d(0, 0, 0) scale(1);
+  transform: translate3d(0, 0, 0) scale(1);
 }
 
 .cont.s--inactive .el__bg:before {
   -webkit-transform: translate3d(0, -100%, 0) scale(1.2);
-          transform: translate3d(0, -100%, 0) scale(1.2);
+  transform: translate3d(0, -100%, 0) scale(1.2);
 }
 
 .el.s--active .el__bg:before {
@@ -113,7 +123,7 @@ body {
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.5);
   opacity: 0;
   -webkit-transition: opacity 0.5s;
   transition: opacity 0.5s;
@@ -131,11 +141,11 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   position: absolute;
   left: 0;
   top: 0;
@@ -148,13 +158,13 @@ body {
 .cont.s--inactive .el__preview-cont {
   opacity: 0;
   -webkit-transform: translateY(10px);
-          transform: translateY(10px);
+  transform: translateY(10px);
 }
 
 .cont.s--el-active .el__preview-cont {
   opacity: 0;
   -webkit-transform: translateY(30px);
-          transform: translateY(30px);
+  transform: translateY(30px);
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
@@ -172,7 +182,7 @@ body {
   top: 0;
   width: 100%;
   height: 100%;
-  padding: 30px;
+  padding: 10%;
   opacity: 0;
   pointer-events: none;
   -webkit-transition: all 0.1s;
@@ -188,11 +198,9 @@ body {
 }
 
 .el__text {
-  text-transform: uppercase;
   font-size: 18px;
   text-align: justify;
   color: #fff;
-  
 }
 
 .el__close-btn {
@@ -217,7 +225,8 @@ body {
   transition: all 0s 1.4s;
 }
 
-.el__close-btn:before, .el__close-btn:after {
+.el__close-btn:before,
+.el__close-btn:after {
   content: "";
   position: absolute;
   left: 0;
@@ -231,32 +240,33 @@ body {
   transition: opacity 0s;
 }
 
-.el.s--active .el__close-btn:before, .el.s--active .el__close-btn:after {
+.el.s--active .el__close-btn:before,
+.el.s--active .el__close-btn:after {
   opacity: 1;
 }
 
 .el__close-btn:before {
   -webkit-transform: rotate(45deg) translateX(100%);
-          transform: rotate(45deg) translateX(100%);
+  transform: rotate(45deg) translateX(100%);
 }
 
 .el.s--active .el__close-btn:before {
   -webkit-transition: all 0.3s 1.4s cubic-bezier(0.72, 0.09, 0.32, 1.57);
   transition: all 0.3s 1.4s cubic-bezier(0.72, 0.09, 0.32, 1.57);
   -webkit-transform: rotate(45deg) translateX(0);
-          transform: rotate(45deg) translateX(0);
+  transform: rotate(45deg) translateX(0);
 }
 
 .el__close-btn:after {
   -webkit-transform: rotate(-45deg) translateX(100%);
-          transform: rotate(-45deg) translateX(100%);
+  transform: rotate(-45deg) translateX(100%);
 }
 
 .el.s--active .el__close-btn:after {
   -webkit-transition: all 0.3s 1.55s cubic-bezier(0.72, 0.09, 0.32, 1.57);
   transition: all 0.3s 1.55s cubic-bezier(0.72, 0.09, 0.32, 1.57);
   -webkit-transform: rotate(-45deg) translateX(0);
-          transform: rotate(-45deg) translateX(0);
+  transform: rotate(-45deg) translateX(0);
 }
 
 .el__index {
@@ -276,12 +286,12 @@ body {
   transition: transform 0.5s, opacity 0.3s 1.4s;
   transition: transform 0.5s, opacity 0.3s 1.4s, -webkit-transform 0.5s;
   -webkit-transform: translate3d(0, 1vw, 0);
-          transform: translate3d(0, 1vw, 0);
+  transform: translate3d(0, 1vw, 0);
 }
 
 .el:hover .el__index {
   -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 .cont.s--el-active .el__index {
@@ -292,7 +302,8 @@ body {
   opacity: 0;
 }
 
-.el__index-back, .el__index-front {
+.el__index-back,
+.el__index-front {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -316,7 +327,7 @@ body {
   overflow: hidden;
   position: relative;
   -webkit-transform: translate3d(0, 100%, 0);
-          transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
   -webkit-transition: -webkit-transform 0.5s 0.1s;
   transition: -webkit-transform 0.5s 0.1s;
   transition: transform 0.5s 0.1s;
@@ -333,7 +344,7 @@ body {
   height: 100%;
   color: #fff;
   -webkit-transform: translate3d(0, -100%, 0);
-          transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
   -webkit-transition: -webkit-transform 0.5s 0.1s;
   transition: -webkit-transform 0.5s 0.1s;
   transition: transform 0.5s 0.1s;
@@ -342,24 +353,24 @@ body {
 
 .el:hover .el__index-overlay {
   -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 .el:hover .el__index-overlay:before {
   -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 .el:nth-child(1) {
   -webkit-transform: translate3d(0%, 0, 0);
-          transform: translate3d(0%, 0, 0);
+  transform: translate3d(0%, 0, 0);
   -webkit-transform-origin: 50% 50%;
-          transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
 }
 
 .cont.s--el-active .el:nth-child(1):not(.s--active) {
   -webkit-transform: scale(0.5) translate3d(0%, 0, 0);
-          transform: scale(0.5) translate3d(0%, 0, 0);
+  transform: scale(0.5) translate3d(0%, 0, 0);
   opacity: 0;
   -webkit-transition: opacity 0.95s, -webkit-transform 0.95s;
   transition: opacity 0.95s, -webkit-transform 0.95s;
@@ -369,30 +380,30 @@ body {
 
 .el:nth-child(1) .el__inner {
   -webkit-transition-delay: 0s;
-          transition-delay: 0s;
+  transition-delay: 0s;
 }
 
 .el:nth-child(1) .el__bg {
   -webkit-transform: translate3d(0%, 0, 0);
-          transform: translate3d(0%, 0, 0);
+  transform: translate3d(0%, 0, 0);
 }
 
 .el:nth-child(1) .el__bg:before {
   -webkit-transition-delay: 0s;
-          transition-delay: 0s;
-  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/onepgscr-3.jpg");
+  transition-delay: 0s;
+  background-image: url("../images/jesse-orrico-tzded6Kf0R0-unsplash.jpg");
 }
 
 .el:nth-child(2) {
   -webkit-transform: translate3d(105.20833%, 0, 0);
-          transform: translate3d(105.20833%, 0, 0);
+  transform: translate3d(105.20833%, 0, 0);
   -webkit-transform-origin: 155.20833% 50%;
-          transform-origin: 155.20833% 50%;
+  transform-origin: 155.20833% 50%;
 }
 
 .cont.s--el-active .el:nth-child(2):not(.s--active) {
   -webkit-transform: scale(0.5) translate3d(105.20833%, 0, 0);
-          transform: scale(0.5) translate3d(105.20833%, 0, 0);
+  transform: scale(0.5) translate3d(105.20833%, 0, 0);
   opacity: 0;
   -webkit-transition: opacity 0.95s, -webkit-transform 0.95s;
   transition: opacity 0.95s, -webkit-transform 0.95s;
@@ -402,30 +413,30 @@ body {
 
 .el:nth-child(2) .el__inner {
   -webkit-transition-delay: 0.1s;
-          transition-delay: 0.1s;
+  transition-delay: 0.1s;
 }
 
 .el:nth-child(2) .el__bg {
   -webkit-transform: translate3d(-19.2%, 0, 0);
-          transform: translate3d(-19.2%, 0, 0);
+  transform: translate3d(-19.2%, 0, 0);
 }
 
 .el:nth-child(2) .el__bg:before {
   -webkit-transition-delay: 0.1s;
-          transition-delay: 0.1s;
-  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/onepgscr-4.jpg");
+  transition-delay: 0.1s;
+  background-image: url("../images/sergey-zolkin-_UeY8aTI6d0-unsplash.jpg");
 }
 
 .el:nth-child(3) {
   -webkit-transform: translate3d(210.41667%, 0, 0);
-          transform: translate3d(210.41667%, 0, 0);
+  transform: translate3d(210.41667%, 0, 0);
   -webkit-transform-origin: 260.41667% 50%;
-          transform-origin: 260.41667% 50%;
+  transform-origin: 260.41667% 50%;
 }
 
 .cont.s--el-active .el:nth-child(3):not(.s--active) {
   -webkit-transform: scale(0.5) translate3d(210.41667%, 0, 0);
-          transform: scale(0.5) translate3d(210.41667%, 0, 0);
+  transform: scale(0.5) translate3d(210.41667%, 0, 0);
   opacity: 0;
   -webkit-transition: opacity 0.95s, -webkit-transform 0.95s;
   transition: opacity 0.95s, -webkit-transform 0.95s;
@@ -435,84 +446,18 @@ body {
 
 .el:nth-child(3) .el__inner {
   -webkit-transition-delay: 0.2s;
-          transition-delay: 0.2s;
+  transition-delay: 0.2s;
 }
 
 .el:nth-child(3) .el__bg {
   -webkit-transform: translate3d(-38.4%, 0, 0);
-          transform: translate3d(-38.4%, 0, 0);
+  transform: translate3d(-38.4%, 0, 0);
 }
 
 .el:nth-child(3) .el__bg:before {
   -webkit-transition-delay: 0.2s;
-          transition-delay: 0.2s;
-  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/onepgscr-5.jpg");
-}
-
-.el:nth-child(4) {
-  -webkit-transform: translate3d(315.625%, 0, 0);
-          transform: translate3d(315.625%, 0, 0);
-  -webkit-transform-origin: 365.625% 50%;
-          transform-origin: 365.625% 50%;
-}
-
-.cont.s--el-active .el:nth-child(4):not(.s--active) {
-  -webkit-transform: scale(0.5) translate3d(315.625%, 0, 0);
-          transform: scale(0.5) translate3d(315.625%, 0, 0);
-  opacity: 0;
-  -webkit-transition: opacity 0.95s, -webkit-transform 0.95s;
-  transition: opacity 0.95s, -webkit-transform 0.95s;
-  transition: transform 0.95s, opacity 0.95s;
-  transition: transform 0.95s, opacity 0.95s, -webkit-transform 0.95s;
-}
-
-.el:nth-child(4) .el__inner {
-  -webkit-transition-delay: 0.3s;
-          transition-delay: 0.3s;
-}
-
-.el:nth-child(4) .el__bg {
-  -webkit-transform: translate3d(-57.6%, 0, 0);
-          transform: translate3d(-57.6%, 0, 0);
-}
-
-.el:nth-child(4) .el__bg:before {
-  -webkit-transition-delay: 0.3s;
-          transition-delay: 0.3s;
-  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/onepgscr-6.jpg");
-}
-
-.el:nth-child(5) {
-  -webkit-transform: translate3d(420.83333%, 0, 0);
-          transform: translate3d(420.83333%, 0, 0);
-  -webkit-transform-origin: 470.83333% 50%;
-          transform-origin: 470.83333% 50%;
-}
-
-.cont.s--el-active .el:nth-child(5):not(.s--active) {
-  -webkit-transform: scale(0.5) translate3d(420.83333%, 0, 0);
-          transform: scale(0.5) translate3d(420.83333%, 0, 0);
-  opacity: 0;
-  -webkit-transition: opacity 0.95s, -webkit-transform 0.95s;
-  transition: opacity 0.95s, -webkit-transform 0.95s;
-  transition: transform 0.95s, opacity 0.95s;
-  transition: transform 0.95s, opacity 0.95s, -webkit-transform 0.95s;
-}
-
-.el:nth-child(5) .el__inner {
-  -webkit-transition-delay: 0.4s;
-          transition-delay: 0.4s;
-}
-
-.el:nth-child(5) .el__bg {
-  -webkit-transform: translate3d(-76.8%, 0, 0);
-          transform: translate3d(-76.8%, 0, 0);
-}
-
-.el:nth-child(5) .el__bg:before {
-  -webkit-transition-delay: 0.4s;
-          transition-delay: 0.4s;
-  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/onepgscr-7.jpg");
+  transition-delay: 0.2s;
+  background-image: url("../images/tyler-lastovich-d0Sl3AH8Tlg-unsplash.jpg");
 }
 
 .el:hover .el__bg:after {
@@ -523,16 +468,17 @@ body {
   z-index: 1;
   width: 100%;
   -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
   -webkit-transition: width 0.7s 0.7s, z-index 0s, -webkit-transform 0.6s;
   transition: width 0.7s 0.7s, z-index 0s, -webkit-transform 0.6s;
   transition: transform 0.6s, width 0.7s 0.7s, z-index 0s;
-  transition: transform 0.6s, width 0.7s 0.7s, z-index 0s, -webkit-transform 0.6s;
+  transition: transform 0.6s, width 0.7s 0.7s, z-index 0s,
+    -webkit-transform 0.6s;
 }
 
 .el.s--active .el__bg {
   -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
   -webkit-transition: -webkit-transform 0.6s;
   transition: -webkit-transform 0.6s;
   transition: transform 0.6s;
@@ -541,9 +487,9 @@ body {
 
 .el.s--active .el__bg:before {
   -webkit-transition-delay: 0.6s;
-          transition-delay: 0.6s;
+  transition-delay: 0.6s;
   -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .icon-link {
@@ -561,5 +507,10 @@ body {
 .icon-link--twitter {
   left: auto;
   right: 5px;
+}
+
+#navLogo{
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 28px;
 }
 /*# sourceMappingURL=style.css.map */
